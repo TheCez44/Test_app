@@ -3,13 +3,24 @@
 UPLOAD_MODE="$(grep ^qbit-upload-mode /mnt/data/config/script.conf | cut -d= -f2-)"
 DELETE_EMPTY_DIR="$(grep ^delete-empty-dir /mnt/data/config/script.conf | cut -d= -f2-)"
 DRIVE_NAME="$(grep ^drive-name /mnt/data/config/script.conf | cut -d= -f2-)"
+SONARR_DRIVE_NAME="$(grep ^sonarr-drive-name /mnt/data/config/script.conf | cut -d= -f2-)"
+RADARR_DRIVE_NAME="$(grep ^radarr-drive-name /mnt/data/config/script.conf | cut -d= -f2-)"
+LIDARR_DRIVE_NAME="$(grep ^lidarr-drive-name /mnt/data/config/script.conf | cut -d= -f2-)"
 QBIT_DOWNLOAD_DIR="$(grep ^'Session\\\DefaultSavePath' /mnt/data/config/qBittorrent/config/qBittorrent.conf | cut -d= -f2- | sed "s/\r$//")"
 
 DRIVE_NAME_AUTO="$(sed -n '1p' /mnt/data/config/rclone.conf | sed "s/.*\[//g;s/\].*//g;s/\r$//")"
-if [ "${DRIVE_NAME}" = "auto" ]; then
-    DRIVENAME=${DRIVE_NAME_AUTO}
+if [ "$3" = "sonarr" ]; then
+    DRIVENAME=${SONARR_DRIVE_NAME}
+elif[ "$3" = "radarr" ]; then
+    DRIVENAME=${RADARR_DRIVE_NAME}
+elif[ "$3" = "lidarr" ]; then
+    DRIVENAME=${LIDARR_DRIVE_NAME}
 else
-    DRIVENAME=${DRIVE_NAME}
+    if [ "${DRIVE_NAME}" = "auto" ]; then
+        DRIVENAME=${DRIVE_NAME_AUTO}
+    else
+        DRIVENAME=${DRIVE_NAME}
+    fi
 fi
 
 GLOBAL_DRIVE_DIR="$(grep ^drive-dir /mnt/data/config/script.conf | cut -d= -f2-)"
