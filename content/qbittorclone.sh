@@ -15,24 +15,30 @@ if [ "$3" = "sonarr" ]; then
             DRIVENAME=${DRIVE_NAME_AUTO}
         else
             DRIVENAME=${DRIVE_NAME}
+        fi
     else
         DRIVENAME=${SONARR_DRIVE_NAME}
+    fi
 elif [ "$3" = "radarr" ]; then
     if [ "${SONARR_DRIVE_NAME}" = "" ]; then
         if [ "${DRIVE_NAME}" = "auto" ]; then
             DRIVENAME=${DRIVE_NAME_AUTO}
         else
             DRIVENAME=${DRIVE_NAME}
+        fi
     else
         DRIVENAME=${RADARR_DRIVE_NAME}
+    fi
 elif [ "$3" = "lidarr" ]; then
     if [ "${SONARR_DRIVE_NAME}" = "" ]; then
         if [ "${DRIVE_NAME}" = "auto" ]; then
             DRIVENAME=${DRIVE_NAME_AUTO}
         else
             DRIVENAME=${DRIVE_NAME}
+        fi
     else
         DRIVENAME=${LIDARR_DRIVE_NAME}
+    fi
 else
     if [ "${DRIVE_NAME}" = "auto" ]; then
         DRIVENAME=${DRIVE_NAME_AUTO}
