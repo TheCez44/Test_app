@@ -40,3 +40,8 @@ This project integrates yt-dlp, Aria2, qBittorrent, pyLoad Download Manager, rcl
 - [wahyd4/aria2-ariang-docker](https://github.com/wahyd4/aria2-ariang-docker)  Inspiration for this project.
 - [bastienwirtz/homer](https://github.com/bastienwirtz/homer)  A very simple static homepage for your server.
 - [mayswind/AriaNg](https://github.com/mayswind/AriaNg) | [filebrowser/filebrowser](https://github.com/filebrowser/filebrowser) | [aria2/aria2](https://github.com/aria2/aria2) | [rclone/rclone](https://github.com/rclone/rclone) | [yt-dlp/yt-dlp](https://github.com/yt-dlp/yt-dlp) | [userdocs/qbittorrent-nox-static](https://github.com/userdocs/qbittorrent-nox-static) | [WDaan/VueTorrent](https://github.com/WDaan/VueTorrent) | [OliveTin/OliveTin](https://github.com/OliveTin/OliveTin) | [pyload/pyload](https://github.com/pyload/pyload) | [mikf/gallery-dl](https://github.com/mikf/gallery-dl)
+
+
+## Railway
+
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https%3A%2F%2Fgithub.com%2FTheCez44%2FTest_app&envs=REPO_URL%2CPYTHON_FILE%2COTHER_INSTALLS&optionalEnvs=OTHER_INSTALLS&REPO_URLDesc=URL+of+the+REPO+that+you+want+to+deploy.&PYTHON_FILEDesc=Name+of+the+python+file+that+you+need+to+run.+%5Buse+-m+if+you+need+to+run+__main__.py+from+a+folder%5D&OTHER_INSTALLSDesc=If+you+need+install+packages+for+running+your+app%28Python+is+pre-installed%29.%5BSpace+in+between+each+package%5D&OTHER_INSTALLSDefault=None)
