@@ -10,11 +10,29 @@ QBIT_DOWNLOAD_DIR="$(grep ^'Session\\\DefaultSavePath' /mnt/data/config/qBittorr
 
 DRIVE_NAME_AUTO="$(sed -n '1p' /mnt/data/config/rclone.conf | sed "s/.*\[//g;s/\].*//g;s/\r$//")"
 if [ "$3" = "sonarr" ]; then
-    DRIVENAME=${SONARR_DRIVE_NAME}
-elif[ "$3" = "radarr" ]; then
-    DRIVENAME=${RADARR_DRIVE_NAME}
-elif[ "$3" = "lidarr" ]; then
-    DRIVENAME=${LIDARR_DRIVE_NAME}
+    if [ "${SONARR_DRIVE_NAME}" = "" ]; then
+        if [ "${DRIVE_NAME}" = "auto" ]; then
+            DRIVENAME=${DRIVE_NAME_AUTO}
+        else
+            DRIVENAME=${DRIVE_NAME}
+    else
+        DRIVENAME=${SONARR_DRIVE_NAME}
+elif [ "$3" = "radarr" ]; then
+    if [ "${SONARR_DRIVE_NAME}" = "" ]; then
+        if [ "${DRIVE_NAME}" = "auto" ]; then
+            DRIVENAME=${DRIVE_NAME_AUTO}
+        else
+            DRIVENAME=${DRIVE_NAME}
+    else
+        DRIVENAME=${RADARR_DRIVE_NAME}
+elif [ "$3" = "lidarr" ]; then
+    if [ "${SONARR_DRIVE_NAME}" = "" ]; then
+        if [ "${DRIVE_NAME}" = "auto" ]; then
+            DRIVENAME=${DRIVE_NAME_AUTO}
+        else
+            DRIVENAME=${DRIVE_NAME}
+    else
+        DRIVENAME=${LIDARR_DRIVE_NAME}
 else
     if [ "${DRIVE_NAME}" = "auto" ]; then
         DRIVENAME=${DRIVE_NAME_AUTO}
